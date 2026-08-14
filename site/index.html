@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlayOS — a console operating system for the ASUS ROG Ally</title>
+  <meta name="description" content="PlayOS is a fast, open, controller-first console operating system for handheld gaming PCs. Immutable, secure, and built for the ASUS ROG Ally.">
+  <meta property="og:title" content="PlayOS">
+  <meta property="og:description" content="A fast, open, controller-first console operating system for the ASUS ROG Ally.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0b0c0f">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0c0f'/%3E%3Cpath d='M12 10.5v11l10-5.5z' fill='%237dd3fc'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="PlayOS home">
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#7dd3fc" fill-opacity="0.14"/>
+          <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="#7dd3fc" stroke-opacity="0.4"/>
+          <path d="M12.5 10.5v11l10-5.5z" fill="#7dd3fc"/>
+        </svg>
+        <span class="brand-name">PlayOS</span>
+        <span class="brand-sub">Foundation</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#features">Features</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#ecosystem">Repositories</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="https://playos-foundation.github.io/playos-spec/" target="_blank" rel="noopener">Docs</a>
+        <a class="nav-cta" href="https://github.com/PlayOS-Foundation" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>A console operating system</span>
+        <h1>Play<span class="accent">OS</span></h1>
+        <p class="tagline">A fast, open, controller-first operating system for the ASUS ROG Ally.</p>
+        <p class="lede">Immutable, secure, and purpose-built for handheld gaming — Linux is the hardware layer, not the product.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://playos-foundation.github.io/playos-spec/" target="_blank" rel="noopener">Read the specification</a>
+          <a class="btn btn-ghost" href="https://github.com/PlayOS-Foundation" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="title">playos — boot</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="dim">UEFI → Linux EFI-stub kernel</span></div>
+          <div><span class="ok">[ OK ]</span> Mounted immutable rootfs</div>
+          <div><span class="ok">[ OK ]</span> <span class="acc">playos-init</span> (PID 1) started</div>
+          <div><span class="ok">[ OK ]</span> GPU discovered: AMD Radeon (RDNA3)</div>
+          <div><span class="ok">[ OK ]</span> <span class="acc">playos-compositor</span>: DRM/KMS acquired</div>
+          <div><span class="ok">[ OK ]</span> <span class="acc">playos-shell</span>: Raylib · OpenGL ES 3</div>
+          <div><span class="ok">[ OK ]</span> Gamepad connected: Xbox 360 Controller</div>
+          <div><span class="acc">Ready — press A to begin</span> <span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Why PlayOS</div>
+          <h2 class="section-title">Built for one thing: playing games</h2>
+          <p class="section-sub">A focused console experience — no desktop, no distractions, no Linux knowledge required.</p>
+        </div>
+        <div class="grid cols-3">
+          <div class="card">
+            <div class="icon">🎮</div>
+            <h3>Controller-first shell</h3>
+            <p>A Raylib-based interface driven entirely by gamepad. Games and menus are navigable with the same controls, end to end.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🖥️</div>
+            <h3>Native compositor</h3>
+            <p>A minimal wlroots compositor that permanently owns DRM/KMS — low-latency, tear-free output with no handoff to games.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🔒</div>
+            <h3>Immutable system</h3>
+            <p>The system image is read-only and reproducible; only the data partition is writable. Crash-restart and atomic updates are built in.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🔊</div>
+            <h3>Low-level audio</h3>
+            <p>ALSA-backed audio through raylib's miniaudio, with device info and foreground-gated master volume and mute.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧩</div>
+            <h3>Engine-agnostic SDK</h3>
+            <p>A stable C ABI (<code>libplayos</code>) for input, storage, lifecycle, and cloud — portable across engines and toolchains.</p>
+          </div>
+          <div class="card">
+            <div class="icon">☁️</div>
+            <h3>Open marketplace &amp; cloud</h3>
+            <p>Publish, discover, and install games; sync cloud saves, achievements, and leaderboards through self-hostable services.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Architecture</div>
+          <h2 class="section-title">A clear separation of concerns</h2>
+          <p class="section-sub">Six core components, each owning one responsibility. Games target the platform API — never the kernel or compositor.</p>
+        </div>
+
+        <div class="arch">
+          <div class="arch-row">
+            <div class="arch-layer">
+              <span class="badge">Game</span>
+              <span class="name">Isolated game process</span>
+              <span class="desc">One at a time · targets libplayos</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer">
+              <span class="badge">UX</span>
+              <span class="name">playos-shell</span>
+              <span class="desc">Raylib · controller-first interface</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer owner">
+              <span class="badge">Display</span>
+              <span class="name">playos-compositor</span>
+              <span class="desc">wlroots · owns DRM/KMS &amp; focus</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer">
+              <span class="badge">Control</span>
+              <span class="name">playos-runtime + platform-api</span>
+              <span class="desc">lifecycle transport · libplayos C ABI</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer">
+              <span class="badge">System</span>
+              <span class="name">playos-init</span>
+              <span class="desc">PID 1 · supervises &amp; restarts services</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer">
+              <span class="badge">Kernel</span>
+              <span class="name">Linux (Buildroot image)</span>
+              <span class="desc">EFI-stub · AMDGPU / DRM · evdev</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="principle-list">
+          <li>Linux is the hardware layer, not the product.</li>
+          <li>The system image is immutable; only the data partition is writable.</li>
+          <li>The compositor permanently owns DRM/KMS — no handoffs to games.</li>
+          <li>One game runs at a time; the shell always stays alive.</li>
+          <li>Games target <code>playos-platform-api</code>; they never touch compositor or kernel internals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="ecosystem">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Ecosystem</div>
+          <h2 class="section-title">Thirteen repositories, one platform</h2>
+          <p class="section-sub">Everything is open source under the PlayOS Foundation.</p>
+        </div>
+
+        <div class="eco-group">
+          <h3>Core runtime</h3>
+          <div class="grid cols-2">
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-init" target="_blank" rel="noopener">
+              <span class="name">playos-init</span>
+              <span class="desc">PID 1 init and system supervisor — boots the OS, supervises compositor/shell, launches games.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-compositor" target="_blank" rel="noopener">
+              <span class="name">playos-compositor</span>
+              <span class="desc">Minimal wlroots compositor owning DRM/KMS, Wayland sessions, focus, and input routing.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-shell" target="_blank" rel="noopener">
+              <span class="name">playos-shell</span>
+              <span class="desc">Raylib-based console interface for launching and managing applications.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-runtime" target="_blank" rel="noopener">
+              <span class="name">playos-runtime</span>
+              <span class="desc">Application lifecycle, package execution, runtime services, and OS integration.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-platform-api" target="_blank" rel="noopener">
+              <span class="name">playos-platform-api</span>
+              <span class="desc">Reference implementation of the public libplayos C ABI (input, storage, lifecycle, cloud).</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="eco-group">
+          <h3>Distribution &amp; hardware</h3>
+          <div class="grid cols-2">
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-refdistro" target="_blank" rel="noopener">
+              <span class="name">playos-refdistro</span>
+              <span class="desc">Buildroot assembly — builds the immutable, bootable image for ROG Ally and QEMU.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-reference-devices" target="_blank" rel="noopener">
+              <span class="name">playos-reference-devices</span>
+              <span class="desc">Hardware profiles, platform backends, and bring-up guides for supported devices.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="eco-group">
+          <h3>Developer</h3>
+          <div class="grid cols-2">
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-spec" target="_blank" rel="noopener">
+              <span class="name">playos-spec</span>
+              <span class="desc">The official specification, architecture, RFCs, and developer documentation.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-tools" target="_blank" rel="noopener">
+              <span class="name">playos-tools</span>
+              <span class="desc">Packaging, project templates, build utilities, deployment, and SDK tooling.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-samples" target="_blank" rel="noopener">
+              <span class="name">playos-samples</span>
+              <span class="desc">Sample applications and tutorials demonstrating the Platform API.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="eco-group">
+          <h3>Services &amp; organization</h3>
+          <div class="grid cols-2">
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-marketplace" target="_blank" rel="noopener">
+              <span class="name">playos-marketplace</span>
+              <span class="desc">Open marketplace for publishing, discovering, and installing games and content.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-cloud" target="_blank" rel="noopener">
+              <span class="name">playos-cloud</span>
+              <span class="desc">Self-hostable cloud services: accounts, cloud saves, achievements, leaderboards.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-foundation" target="_blank" rel="noopener">
+              <span class="name">playos-foundation</span>
+              <span class="desc">This website — governance, roadmap, community guidelines, and branding.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="wrap">
+        <div class="band">
+          <h2>Under active development</h2>
+          <p>PlayOS is an early-stage, community-driven project. Follow the roadmap and sprint status in the specification.</p>
+          <div class="cta-row" style="justify-content:center">
+            <a class="btn btn-primary" href="https://playos-foundation.github.io/playos-spec/sprints/roadmap.html" target="_blank" rel="noopener">View the roadmap</a>
+            <a class="btn btn-ghost" href="https://playos-foundation.github.io/playos-spec/build-guide.html" target="_blank" rel="noopener">Build it yourself</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top" style="margin-bottom:12px">
+            <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="7" fill="#7dd3fc" fill-opacity="0.14"/>
+              <path d="M12.5 10.5v11l10-5.5z" fill="#7dd3fc"/>
+            </svg>
+            <span class="brand-name">PlayOS</span>
+          </a>
+          <p>A console operating system for the ASUS ROG Ally. Open source, built by the community.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Project</h4>
+          <a href="#features">Features</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#ecosystem">Repositories</a>
+          <a href="#roadmap">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <h4>Developers</h4>
+          <a href="https://playos-foundation.github.io/playos-spec/" target="_blank" rel="noopener">Documentation</a>
+          <a href="https://playos-foundation.github.io/playos-spec/build-guide.html" target="_blank" rel="noopener">Build guide</a>
+          <a href="https://github.com/PlayOS-Foundation" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="https://github.com/PlayOS-Foundation/playos-foundation" target="_blank" rel="noopener">Governance</a>
+          <a href="https://github.com/PlayOS-Foundation/playos-spec" target="_blank" rel="noopener">Specification</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PlayOS Foundation</span>
+        <span>Linux® is the registered trademark of Linus Torvalds. ASUS and ROG are trademarks of their respective owners.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
