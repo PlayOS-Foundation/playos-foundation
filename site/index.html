@@ -258,9 +258,67 @@
 
     <section id="roadmap">
       <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Roadmap</div>
+          <h2 class="section-title">Sprint status</h2>
+          <p class="section-sub">Twelve sprints shipped and verified. Six remain before the public MVP release.</p>
+        </div>
+
+        <div class="progress" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="18" aria-label="Sprint progress toward public MVP">
+          <div class="progress-bar" style="width: 67%"></div>
+        </div>
+        <p class="progress-label">12 of 18 sprints complete</p>
+
+        <div class="grid cols-2 sprint-cols">
+          <div class="card sprint-card">
+            <div class="sprint-head">
+              <span class="sprint-badge done" aria-hidden="true">✓</span>
+              <div>
+                <h3>Sprints implemented</h3>
+                <p>Complete &amp; verified</p>
+              </div>
+              <span class="sprint-count">12</span>
+            </div>
+            <ul class="sprint-list">
+              <li><span class="sprint-num">0</span> Build &amp; UEFI Foundation</li>
+              <li><span class="sprint-num">1</span> playos-init &amp; Minimal Boot</li>
+              <li><span class="sprint-num">2</span> Compositor Skeleton &amp; Wayland Session</li>
+              <li><span class="sprint-num">2.5</span> Cross-Sprint Audit</li>
+              <li><span class="sprint-num">3</span> ROG Ally Kernel Bring-Up</li>
+              <li><span class="sprint-num">4</span> AMDGPU &amp; Native DRM/KMS</li>
+              <li><span class="sprint-num">5</span> Raylib-Powered Shell</li>
+              <li><span class="sprint-num">5.5</span> Raylib 6.0 Migration</li>
+              <li><span class="sprint-num">5.6</span> Repos Cleanup</li>
+              <li><span class="sprint-num">6</span> Storage &amp; Game Discovery</li>
+              <li><span class="sprint-num">7</span> Game Launch, Lifecycle &amp; Overlay</li>
+              <li><span class="sprint-num">8</span> ALSA Audio</li>
+            </ul>
+          </div>
+
+          <div class="card sprint-card">
+            <div class="sprint-head">
+              <span class="sprint-badge pending" aria-hidden="true">→</span>
+              <div>
+                <h3>Pending to public MVP</h3>
+                <p>In dependency order</p>
+              </div>
+              <span class="sprint-count">6</span>
+            </div>
+            <ul class="sprint-list">
+              <li><span class="sprint-num">9</span> Power, Battery, Thermal &amp; Suspend</li>
+              <li><span class="sprint-num">10</span> Installer &amp; Internal-Disk Deployment</li>
+              <li><span class="sprint-num">11</span> Immutable Images &amp; A/B Updates</li>
+              <li><span class="sprint-num">12</span> Security Hardening</li>
+              <li><span class="sprint-num">13</span> Intel Expansion</li>
+              <li><span class="sprint-num">14</span> Production Readiness</li>
+            </ul>
+            <p class="sprint-note">After the MVP: Game Developer SDK, Wi-Fi, and Touch &amp; On-Screen Keyboard.</p>
+          </div>
+        </div>
+
         <div class="band">
           <h2>Under active development</h2>
-          <p>PlayOS is an early-stage, community-driven project. Follow the roadmap and sprint status in the specification.</p>
+          <p>PlayOS is an early-stage, community-driven project. Follow the full roadmap and sprint criteria in the specification.</p>
           <div class="cta-row" style="justify-content:center">
             <a class="btn btn-primary" href="https://playos-foundation.github.io/playos-spec/sprints/roadmap.html" target="_blank" rel="noopener">View the roadmap</a>
             <a class="btn btn-ghost" href="https://playos-foundation.github.io/playos-spec/build-guide.html" target="_blank" rel="noopener">Build it yourself</a>

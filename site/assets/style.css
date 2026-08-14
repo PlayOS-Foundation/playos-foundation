@@ -243,8 +243,71 @@ section { padding: 72px 0; }
 .repo .desc { color: var(--muted); font-size: 13.5px; }
 .repo svg { flex: none; color: var(--faint); }
 
+/* ---------- Roadmap / Sprint status ---------- */
+.progress {
+  height: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-strong), var(--accent));
+  border-radius: 999px;
+}
+.progress-label {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--faint);
+  margin: 8px 0 28px;
+}
+
+.sprint-cols { align-items: start; }
+.sprint-card { padding: 26px; }
+.sprint-card:hover { transform: none; }
+.sprint-head { display: flex; align-items: center; gap: 13px; }
+.sprint-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex: none;
+}
+.sprint-badge.done { background: rgba(74, 222, 128, 0.14); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.28); }
+.sprint-badge.pending { background: var(--accent-dim); color: var(--accent); border: 1px solid var(--border); }
+.sprint-head h3 { margin: 0; font-size: 17px; letter-spacing: -0.01em; }
+.sprint-head p { margin: 0; font-size: 13px; color: var(--faint); }
+.sprint-count { margin-left: auto; font-family: var(--mono); font-size: 28px; font-weight: 700; color: var(--accent); }
+
+.sprint-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 6px; }
+.sprint-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--muted);
+  padding: 8px 11px;
+  border-radius: 8px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+}
+.sprint-list .sprint-num { font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 600; min-width: 26px; flex: none; }
+.sprint-note {
+  margin: 14px 0 0;
+  font-size: 12.5px;
+  color: var(--faint);
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
 /* ---------- Roadmap / CTA band ---------- */
 .band {
+  margin-top: 32px;
   background: linear-gradient(180deg, var(--accent-dim), transparent);
   border: 1px solid var(--border);
   border-radius: var(--radius);
