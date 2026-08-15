@@ -9,7 +9,7 @@
   --border-strong: #2e323a;
   --text: #e7eaee;
   --muted: #98a0ab;
-  --faint: #6b7280;
+  --faint: #7c8694;
   --accent: #7dd3fc;
   --accent-strong: #38bdf8;
   --accent2: #c084fc;
@@ -384,4 +384,70 @@ footer {
   .footer-grid { grid-template-columns: 1fr; }
   .repo { flex-wrap: wrap; }
   .repo .desc { width: 100%; }
+}
+
+/* ---------- Links / focus ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-cta svg { display: block; }
+
+.footer-col a.gh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-col a.gh svg { display: block; }
+
+/* ---------- Repo hover affordance ---------- */
+.repo {
+  transition: border-color 0.15s, transform 0.15s;
+}
+.repo:hover { transform: translateY(-2px); }
+.repo::after {
+  content: "→";
+  flex: none;
+  margin-left: auto;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.15s, transform 0.15s;
+}
+.repo:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 620px) {
+  .repo::after { display: none; }
+}
+
+/* ---------- Reveal on scroll ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
 }
