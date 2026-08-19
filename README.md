@@ -8,5 +8,5 @@ build step) in [`site/`](site/). It is published to GitHub Pages via
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) on every push to
 `main`.
 
-- Live: <https://playos-foundation.github.io/playos-foundation/>
+- Live: <https://playos.dev/>
 - Local preview: open `site/index.html`, or run `python3 -m http.server -d site`
