@@ -1,26 +1,26 @@
 /* PlayOS — minimal, fast, dark */
 
 :root {
-  --bg: #0b0c0f;
-  --bg-soft: #0f1115;
-  --surface: #14161b;
-  --surface-2: #191c22;
-  --border: #23262d;
-  --border-strong: #2e323a;
-  --text: #e7eaee;
-  --muted: #98a0ab;
-  --faint: #7c8694;
-  --accent: #7dd3fc;
-  --accent-strong: #38bdf8;
-  --accent2: #c084fc;
-  --accent3: #34d399;
-  --accent-dim: rgba(125, 211, 252, 0.12);
-  --accent-glow: rgba(56, 189, 248, 0.35);
-  --accent-grad: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  --bg: #0a0c0f;
+  --bg-soft: #0e1115;
+  --surface: #12161b;
+  --surface-2: #181d23;
+  --border: #20262e;
+  --border-strong: #2b333d;
+  --text: #edf1f4;
+  --muted: #9aa5b0;
+  --faint: #7d8893;
+  --accent: #5eead4;
+  --accent-strong: #2dd4bf;
+  --accent2: #a78bfa;
+  --accent3: #fbbf24;
+  --accent-dim: rgba(94, 234, 212, 0.12);
+  --accent-glow: rgba(45, 212, 191, 0.35);
+  --accent-grad: linear-gradient(135deg, #2dd4bf 0%, #22d3ee 50%, #a78bfa 100%);
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
   --maxw: 1080px;
-  --radius: 12px;
+  --radius: 14px;
 }
 
 * { box-sizing: border-box; }
@@ -50,7 +50,7 @@ a:hover { color: var(--accent-strong); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(11, 12, 15, 0.72);
+  background: rgba(10, 12, 15, 0.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -76,7 +76,7 @@ a:hover { color: var(--accent-strong); }
   padding: 7px 14px;
   border-radius: 8px;
   font-weight: 600;
-  box-shadow: 0 6px 18px -8px rgba(56, 189, 248, 0.6);
+  box-shadow: 0 6px 18px -8px rgba(45, 212, 191, 0.6);
 }
 .nav-cta:hover { filter: brightness(1.08); color: #fff !important; }
 
@@ -103,9 +103,9 @@ a:hover { color: var(--accent-strong); }
   inset: -30% -15% auto;
   height: 640px;
   background:
-    radial-gradient(ellipse 55% 50% at 50% 0%, rgba(56, 189, 248, 0.26), transparent 70%),
-    radial-gradient(ellipse 45% 45% at 74% 18%, rgba(192, 132, 252, 0.22), transparent 70%),
-    radial-gradient(ellipse 40% 40% at 26% 22%, rgba(52, 211, 153, 0.16), transparent 70%);
+    radial-gradient(ellipse 55% 50% at 50% 0%, rgba(45, 212, 191, 0.26), transparent 70%),
+    radial-gradient(ellipse 45% 45% at 74% 18%, rgba(167, 139, 250, 0.22), transparent 70%),
+    radial-gradient(ellipse 40% 40% at 26% 22%, rgba(34, 211, 238, 0.16), transparent 70%);
   filter: saturate(1.2);
   pointer-events: none;
   animation: aurora 16s ease-in-out infinite alternate;
@@ -165,9 +165,9 @@ a:hover { color: var(--accent-strong); }
 .btn-primary {
   background: var(--accent-grad);
   color: #fff;
-  box-shadow: 0 10px 26px -12px rgba(56, 189, 248, 0.55);
+  box-shadow: 0 10px 26px -12px rgba(45, 212, 191, 0.55);
 }
-.btn-primary:hover { filter: brightness(1.08); color: #fff; box-shadow: 0 12px 30px -10px rgba(192, 132, 252, 0.55); }
+.btn-primary:hover { filter: brightness(1.08); color: #fff; box-shadow: 0 12px 30px -10px rgba(167, 139, 250, 0.55); }
 .btn-ghost { border-color: var(--border-strong); color: var(--text); background: transparent; }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -282,7 +282,7 @@ section { padding: 72px 0; }
 }
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+  background: linear-gradient(90deg, #2dd4bf, #22d3ee, #a78bfa);
   border-radius: 999px;
 }
 .progress-label {
