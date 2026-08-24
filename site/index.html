@@ -50,6 +50,7 @@
       </a>
       <div class="nav-links" id="nav-links">
         <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
         <a href="#architecture">Architecture</a>
         <a href="#ecosystem">Repositories</a>
         <a href="#roadmap">Roadmap</a>
@@ -174,6 +175,46 @@
             <h3>Open marketplace &amp; cloud</h3>
             <p>Publish, discover, and install games; sync cloud saves, achievements, and leaderboards through self-hostable services.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots" class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">On device</div>
+          <h2 class="section-title">Straight from the ROG Ally</h2>
+          <p class="section-sub">Unedited captures from a working ASUS ROG Ally running the current build — no mockups, no renders.</p>
+        </div>
+
+        <div class="carousel" id="screenshot-carousel" role="region" aria-roledescription="carousel" aria-label="PlayOS screenshots captured on the ROG Ally">
+          <div class="carousel-viewport">
+            <ul class="carousel-track">
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
+                <img src="assets/pos_screenshots/playos-1741816810.488.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 1 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+                <img src="assets/pos_screenshots/playos-1741816817.522.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 2 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+                <img src="assets/pos_screenshots/playos-1741816823.283.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 3 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+                <img src="assets/pos_screenshots/playos-1741816828.212.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 4 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+                <img src="assets/pos_screenshots/playos-1741816834.585.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 5 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+            </ul>
+            <button class="carousel-btn carousel-prev" type="button" aria-label="Previous screenshot">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="carousel-btn carousel-next" type="button" aria-label="Next screenshot">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+          <div class="carousel-dots"></div>
+          <p class="carousel-caption">Captured on the ASUS ROG Ally (2023) · 1920 × 1080</p>
         </div>
       </div>
     </section>
@@ -327,13 +368,13 @@
         <div class="section-head">
           <div class="section-kicker">Roadmap</div>
           <h2 class="section-title">Sprint status</h2>
-          <p class="section-sub">Fourteen sprints shipped and verified. Four remain before the public MVP release.</p>
+          <p class="section-sub">Sixteen sprints shipped and verified — including on-device validation of A/B updates and the security sandbox. Two remain before the public MVP release.</p>
         </div>
 
-        <div class="progress" role="progressbar" aria-valuenow="14" aria-valuemin="0" aria-valuemax="18" aria-label="Sprint progress toward public MVP">
-          <div class="progress-bar" style="width: 78%"></div>
+        <div class="progress" role="progressbar" aria-valuenow="16" aria-valuemin="0" aria-valuemax="18" aria-label="Sprint progress toward public MVP">
+          <div class="progress-bar" style="width: 89%"></div>
         </div>
-        <p class="progress-label">14 of 18 sprints complete</p>
+        <p class="progress-label">16 of 18 sprints complete</p>
 
         <div class="grid cols-2 sprint-cols">
           <div class="card sprint-card">
@@ -343,7 +384,7 @@
                 <h3>Sprints implemented</h3>
                 <p>Complete &amp; verified</p>
               </div>
-              <span class="sprint-count">14</span>
+              <span class="sprint-count">16</span>
             </div>
             <ul class="sprint-list">
               <li><span class="sprint-num">0</span> Build &amp; UEFI Foundation</li>
@@ -360,7 +401,10 @@
               <li><span class="sprint-num">8</span> ALSA Audio</li>
               <li><span class="sprint-num">9</span> Power, Battery, Thermal &amp; Suspend</li>
               <li><span class="sprint-num">10</span> Installer &amp; Internal-Disk Deployment</li>
+              <li><span class="sprint-num">11</span> Immutable Images &amp; A/B Updates</li>
+              <li><span class="sprint-num">12</span> Security Hardening</li>
             </ul>
+            <p class="sprint-note">Sub-sprints 9.5 (brightness control), 11.5 (squashfs pivot &amp; A/B matrix) and 11.6 (SSH &amp; USB-C Ethernet) are also complete — all validated on-device on the ROG Ally.</p>
           </div>
 
           <div class="card sprint-card">
@@ -370,15 +414,13 @@
                 <h3>Pending to public MVP</h3>
                 <p>In dependency order</p>
               </div>
-              <span class="sprint-count">4</span>
+              <span class="sprint-count">2</span>
             </div>
             <ul class="sprint-list">
-              <li><span class="sprint-num">11</span> Immutable Images &amp; A/B Updates</li>
-              <li><span class="sprint-num">12</span> Security Hardening</li>
               <li><span class="sprint-num">13</span> Intel Expansion</li>
               <li><span class="sprint-num">14</span> Production Readiness</li>
             </ul>
-            <p class="sprint-note">Sprint 11 (A/B updates) is code-complete and QEMU-verified; the ROG Ally A/B matrix is still pending (Sprint 11.5/11.6).</p>
+            <p class="sprint-note">Sprint 13 (Intel expansion) is authored and aligned in the spec — hardware validation on an Intel/NVIDIA laptop target is next. Sprint 11.5/11.6 and 12 are already validated on-device.</p>
             <p class="sprint-note">After the MVP: Game Developer SDK, Wi-Fi, and Touch &amp; On-Screen Keyboard.</p>
           </div>
         </div>
@@ -411,6 +453,7 @@
         <div class="footer-col">
           <h4>Project</h4>
           <a href="#features">Features</a>
+          <a href="#screenshots">Screenshots</a>
           <a href="#architecture">Architecture</a>
           <a href="#ecosystem">Repositories</a>
           <a href="#roadmap">Roadmap</a>
@@ -476,6 +519,101 @@
       }
       tick();
       setInterval(tick, 30000);
+    })();
+
+    (function () {
+      var carousel = document.getElementById('screenshot-carousel');
+      if (!carousel) { return; }
+      var track = carousel.querySelector('.carousel-track');
+      var slides = carousel.querySelectorAll('.carousel-slide');
+      var dotsWrap = carousel.querySelector('.carousel-dots');
+      var prevBtn = carousel.querySelector('.carousel-prev');
+      var nextBtn = carousel.querySelector('.carousel-next');
+      var count = slides.length;
+      var index = 0;
+      var timer = null;
+      var AUTOPLAY_MS = 5000;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var dots = [];
+      for (var i = 0; i < count; i++) {
+        (function (n) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'carousel-dot';
+          dot.setAttribute('aria-label', 'Go to screenshot ' + (n + 1) + ' of ' + count);
+          dot.addEventListener('click', function () { goTo(n, true); });
+          dotsWrap.appendChild(dot);
+          dots.push(dot);
+        })(i);
+      }
+
+      function goTo(n, userInitiated) {
+        index = ((n % count) + count) % count;
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        for (var i = 0; i < count; i++) {
+          dots[i].classList.toggle('active', i === index);
+          if (i === index) { dots[i].setAttribute('aria-current', 'true'); }
+          else { dots[i].removeAttribute('aria-current'); }
+        }
+        if (userInitiated) { restart(); }
+      }
+      function next() { goTo(index + 1, true); }
+      function prev() { goTo(index - 1, true); }
+
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() {
+        if (reduceMotion) { return; }
+        stop();
+        timer = setInterval(function () { goTo(index + 1, false); }, AUTOPLAY_MS);
+      }
+      function restart() { start(); }
+
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      carousel.addEventListener('focusin', stop);
+      carousel.addEventListener('focusout', start);
+
+      carousel.setAttribute('tabindex', '0');
+      carousel.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { prev(); e.preventDefault(); }
+        else if (e.key === 'ArrowRight') { next(); e.preventDefault(); }
+      });
+
+      var pointerStartX = null;
+      carousel.addEventListener('pointerdown', function (e) {
+        pointerStartX = e.clientX;
+        stop();
+      });
+      carousel.addEventListener('pointerup', function (e) {
+        if (pointerStartX === null) { return; }
+        var dx = e.clientX - pointerStartX;
+        pointerStartX = null;
+        if (dx > 40) { prev(); }
+        else if (dx < -40) { next(); }
+        else { restart(); }
+      });
+      carousel.addEventListener('pointercancel', function () {
+        pointerStartX = null;
+        restart();
+      });
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { start(); }
+            else { stop(); }
+          });
+        }, { threshold: 0.25 });
+        io.observe(carousel);
+      } else {
+        start();
+      }
+
+      goTo(0, false);
+      start();
     })();
   </script>
 </body>

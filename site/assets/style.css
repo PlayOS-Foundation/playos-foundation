@@ -271,6 +271,75 @@ section { padding: 72px 0; }
 .repo .desc { color: var(--muted); font-size: 13.5px; }
 .repo svg { flex: none; color: var(--faint); }
 
+/* ---------- Screenshots / carousel ---------- */
+.carousel-viewport {
+  position: relative;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #05070a;
+  box-shadow: 0 30px 70px -35px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(45, 212, 191, 0.08);
+}
+.carousel-track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.carousel-slide { flex: 0 0 100%; min-width: 100%; }
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: rgba(10, 12, 15, 0.72);
+  color: var(--text);
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.carousel-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(10, 12, 15, 0.9); }
+.carousel-prev { left: 14px; }
+.carousel-next { right: 14px; }
+.carousel-dots { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, width 0.2s;
+}
+.carousel-dot:hover { border-color: var(--accent); }
+.carousel-dot.active { width: 24px; background: var(--accent-grad); border-color: transparent; }
+.carousel-caption {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--faint);
+  margin: 14px 0 0;
+}
+
 /* ---------- Roadmap / Sprint status ---------- */
 .progress {
   height: 8px;
@@ -615,4 +684,7 @@ button:focus-visible {
 @media (max-width: 620px) {
   .status-right .status-item svg + span { display: none; }
   .gamepad-hints { flex-direction: column; gap: 8px; }
+  .carousel-btn { width: 36px; height: 36px; }
+  .carousel-prev { left: 10px; }
+  .carousel-next { right: 10px; }
 }
