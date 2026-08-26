@@ -1,0 +1,73 @@
+---
+title: Roadmap
+description: Sprint status — sixteen sprints shipped and verified, including on-device validation of A/B updates and the security sandbox. Two remain before the public MVP release.
+sidebar:
+  order: 6
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Sixteen sprints shipped and verified — including on-device validation of A/B updates and the security sandbox. Two remain before the public MVP release.
+
+<div class="pos-progress" role="progressbar" aria-valuenow="16" aria-valuemin="0" aria-valuemax="18" aria-label="Sprint progress toward public MVP">
+  <div class="pos-progress-bar" style="width: 89%"></div>
+</div>
+<p class="pos-progress-label">16 of 18 sprints complete</p>
+
+<div class="pos-grid pos-grid-cols-2" style="align-items:start">
+  <div class="pos-card pos-sprint-card">
+    <div class="pos-sprint-head">
+      <span class="pos-sprint-badge pos-done" aria-hidden="true">✓</span>
+      <div>
+        <h3>Sprints implemented</h3>
+        <p>Complete &amp; verified</p>
+      </div>
+      <span class="pos-sprint-count">16</span>
+    </div>
+    <ul class="pos-sprint-list">
+      <li><span class="pos-sprint-num">0</span> Build &amp; UEFI Foundation</li>
+      <li><span class="pos-sprint-num">1</span> playos-init &amp; Minimal Boot</li>
+      <li><span class="pos-sprint-num">2</span> Compositor Skeleton &amp; Wayland Session</li>
+      <li><span class="pos-sprint-num">2.5</span> Cross-Sprint Audit</li>
+      <li><span class="pos-sprint-num">3</span> ROG Ally Kernel Bring-Up</li>
+      <li><span class="pos-sprint-num">4</span> AMDGPU &amp; Native DRM/KMS</li>
+      <li><span class="pos-sprint-num">5</span> Raylib-Powered Shell</li>
+      <li><span class="pos-sprint-num">5.5</span> Raylib 6.0 Migration</li>
+      <li><span class="pos-sprint-num">5.6</span> Repos Cleanup</li>
+      <li><span class="pos-sprint-num">6</span> Storage &amp; Game Discovery</li>
+      <li><span class="pos-sprint-num">7</span> Game Launch, Lifecycle &amp; Overlay</li>
+      <li><span class="pos-sprint-num">8</span> ALSA Audio</li>
+      <li><span class="pos-sprint-num">9</span> Power, Battery, Thermal &amp; Suspend</li>
+      <li><span class="pos-sprint-num">10</span> Installer &amp; Internal-Disk Deployment</li>
+      <li><span class="pos-sprint-num">11</span> Immutable Images &amp; A/B Updates</li>
+      <li><span class="pos-sprint-num">12</span> Security Hardening</li>
+    </ul>
+    <p class="pos-sprint-note">Sub-sprints 9.5 (brightness control), 11.5 (squashfs pivot &amp; A/B matrix) and 11.6 (SSH &amp; USB-C Ethernet) are also complete — all validated on-device on the ROG Ally.</p>
+  </div>
+
+  <div class="pos-card pos-sprint-card">
+    <div class="pos-sprint-head">
+      <span class="pos-sprint-badge pos-pending" aria-hidden="true">→</span>
+      <div>
+        <h3>Pending to public MVP</h3>
+        <p>In dependency order</p>
+      </div>
+      <span class="pos-sprint-count">2</span>
+    </div>
+    <ul class="pos-sprint-list">
+      <li><span class="pos-sprint-num">13</span> Intel Expansion</li>
+      <li><span class="pos-sprint-num">14</span> Production Readiness</li>
+    </ul>
+    <p class="pos-sprint-note">Sprint 13 (Intel expansion) is authored and aligned in the spec — hardware validation on an Intel/NVIDIA laptop target is next. Sprint 11.5/11.6 and 12 are already validated on-device.</p>
+    <p class="pos-sprint-note">After the MVP: Game Developer SDK, Wi-Fi, and Touch &amp; On-Screen Keyboard.</p>
+  </div>
+</div>
+
+<div class="pos-band">
+  <h2>Under active development</h2>
+  <p>PlayOS is an early-stage, community-driven project. Follow the full roadmap and sprint criteria in the specification.</p>
+  <div class="pos-band-actions">
+    <LinkButton href="https://playos-foundation.github.io/playos-spec/sprints/roadmap.html" variant="primary">View the roadmap</LinkButton>
+    <LinkButton href="https://playos-foundation.github.io/playos-spec/build-guide.html" variant="secondary">Build it yourself</LinkButton>
+  </div>
+</div>
