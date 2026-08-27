@@ -3,12 +3,10 @@ Public website, governance, roadmap, community guidelines, branding, and organiz
 
 ## Website
 
-The PlayOS website is built with [Astro](https://astro.build/) and
-[Starlight](https://starlight.astro.build/) in [`site/`](site/). It is published
-to GitHub Pages via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
-on every push to `main`.
+The PlayOS website is a static, dependency-free site (hand-written HTML/CSS, no
+build step) in [`site/`](site/). It is published to GitHub Pages via
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) on every push to
+`main`.
 
 - Live: <https://playos.dev/>
-- Local dev: `cd site && npm install && npm run dev`
-- Build: `npm run build` (outputs to `site/dist/`)
-- Typecheck: `npm run check`
+- Local preview: open `site/index.html`, or run `python3 -m http.server -d site`

@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlayOS — a console operating system for handheld gaming PCs</title>
+  <meta name="description" content="PlayOS is a fast, open, controller-first console operating system for handheld gaming PCs. Immutable, secure, and built on Linux.">
+  <meta property="og:title" content="PlayOS">
+  <meta property="og:description" content="A fast, open, controller-first console operating system for handheld gaming PCs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://playos.dev/">
+  <meta property="og:image" content="https://playos.dev/assets/og.png">
+  <link rel="canonical" href="https://playos.dev/">
+  <meta name="theme-color" content="#0a0c0f">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c0f'/%3E%3Cpath d='M12 10.5v11l10-5.5z' fill='%235eead4'/%3E%3C/svg%3E">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="statusbar" aria-hidden="true">
+    <div class="wrap statusbar-inner">
+      <span class="status-mode"><span class="status-dot"></span>Game Mode</span>
+      <span class="status-right">
+        <span class="status-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="6" x2="10" y1="11" y2="11"/>
+            <line x1="8" x2="8" y1="9" y2="13"/>
+            <line x1="15" x2="15.01" y1="12" y2="12"/>
+            <line x1="18" x2="18.01" y1="10" y2="10"/>
+            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+          </svg>
+          <span>P1</span>
+        </span>
+        <span class="status-item status-clock" id="status-clock">--:--</span>
+      </span>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="PlayOS home">
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#5eead4" fill-opacity="0.14"/>
+          <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="#5eead4" stroke-opacity="0.4"/>
+          <path d="M12.5 10.5v11l10-5.5z" fill="#5eead4"/>
+        </svg>
+        <span class="brand-name">PlayOS</span>
+        <span class="brand-sub">Foundation</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#ecosystem">Repositories</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="https://playos-foundation.github.io/playos-spec/" target="_blank" rel="noopener">Docs</a>
+        <a class="nav-cta" href="https://github.com/PlayOS-Foundation" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>A console operating system</span>
+        <h1>Play<span class="accent">OS</span></h1>
+        <p class="tagline">A fast, open, controller-first console operating system for handheld gaming PCs.</p>
+        <p class="lede">Immutable, secure, and purpose-built for handheld gaming — with the ASUS ROG Ally as the first reference device. Linux is the hardware layer, not the product.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://playos-foundation.github.io/playos-spec/" target="_blank" rel="noopener">Read the specification</a>
+          <a class="btn btn-ghost" href="https://github.com/PlayOS-Foundation" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+        <div class="gamepad-hints" aria-hidden="true">
+          <span class="hint"><span class="keycap">A</span> Read spec</span>
+          <span class="hint"><span class="keycap">B</span> GitHub</span>
+        </div>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="title">playos — boot</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="dim">UEFI → Linux EFI-stub kernel</span></div>
+          <div><span class="ok">[ OK ]</span> Mounted immutable rootfs</div>
+          <div><span class="ok">[ OK ]</span> <span class="acc">playos-init</span> (PID 1) started</div>
+          <div><span class="ok">[ OK ]</span> GPU discovered: AMD Radeon (RDNA3)</div>
+          <div><span class="ok">[ OK ]</span> <span class="acc">playos-compositor</span>: DRM/KMS acquired</div>
+          <div><span class="ok">[ OK ]</span> <span class="acc">playos-shell</span>: Raylib · OpenGL ES 3</div>
+          <div><span class="ok">[ OK ]</span> Gamepad connected: Xbox 360 Controller</div>
+          <div><span class="acc">Ready — press A to begin</span> <span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="features" class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Why PlayOS</div>
+          <h2 class="section-title">Built for one thing: playing games</h2>
+          <p class="section-sub">A focused console experience — no desktop, no distractions, no Linux knowledge required.</p>
+        </div>
+        <div class="grid cols-3">
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 8h11a2.5 2.5 0 0 1 2.5 2.5v3a2.5 2.5 0 0 1-2.5 2.5H14l-2 1.8L10 16H6.5A2.5 2.5 0 0 1 4 13.5v-3A2.5 2.5 0 0 1 6.5 8Z"/>
+                <path d="M8 11v3M6.5 12.5h3"/>
+                <circle cx="15.6" cy="11.4" r="0.5" fill="currentColor" stroke="none"/>
+                <circle cx="17.3" cy="13.4" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <h3>Controller-first shell</h3>
+            <p>A Raylib-based interface driven entirely by gamepad. Games and menus are navigable with the same controls, end to end.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="12" rx="2"/>
+                <path d="M8 20h8M12 16v4"/>
+              </svg>
+            </div>
+            <h3>Native compositor</h3>
+            <p>A minimal wlroots compositor that permanently owns DRM/KMS — low-latency, tear-free output with no handoff to games.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="11" width="14" height="9" rx="2"/>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+                <circle cx="12" cy="15.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <h3>Immutable system</h3>
+            <p>The system image is read-only and reproducible; only the data partition is writable. Crash-restart and atomic updates are built in.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 9.5v5h3.5L12 19V5L7.5 9.5H4Z"/>
+                <path d="M15.5 10a3.5 3.5 0 0 1 0 4"/>
+                <path d="M18 8a7 7 0 0 1 0 8"/>
+              </svg>
+            </div>
+            <h3>Low-level audio</h3>
+            <p>ALSA-backed audio through raylib's miniaudio, with device info and foreground-gated master volume and mute.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8.5 8 5 12l3.5 4"/>
+                <path d="M15.5 8 19 12l-3.5 4"/>
+              </svg>
+            </div>
+            <h3>Engine-agnostic SDK</h3>
+            <p>A stable C ABI (<code>libplayos</code>) for input, storage, lifecycle, and cloud — portable across engines and toolchains.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 18a4 4 0 0 1-.6-7.95A5.5 5.5 0 0 1 17 8.5 3.75 3.75 0 0 1 16.5 18H7Z"/>
+              </svg>
+            </div>
+            <h3>Open marketplace &amp; cloud</h3>
+            <p>Publish, discover, and install games; sync cloud saves, achievements, and leaderboards through self-hostable services.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots" class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">On device</div>
+          <h2 class="section-title">Straight from the ROG Ally</h2>
+          <p class="section-sub">Unedited captures from a working ASUS ROG Ally running the current build — no mockups, no renders.</p>
+        </div>
+
+        <div class="carousel" id="screenshot-carousel" role="region" aria-roledescription="carousel" aria-label="PlayOS screenshots captured on the ROG Ally">
+          <div class="carousel-viewport">
+            <ul class="carousel-track">
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
+                <img src="assets/pos_screenshots/playos-1741816810.488.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 1 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+                <img src="assets/pos_screenshots/playos-1741816817.522.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 2 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+                <img src="assets/pos_screenshots/playos-1741816823.283.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 3 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+                <img src="assets/pos_screenshots/playos-1741816828.212.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 4 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+              <li class="carousel-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+                <img src="assets/pos_screenshots/playos-1741816834.585.png" alt="PlayOS running on the ASUS ROG Ally — screenshot 5 of 5" width="1920" height="1080" loading="lazy">
+              </li>
+            </ul>
+            <button class="carousel-btn carousel-prev" type="button" aria-label="Previous screenshot">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="carousel-btn carousel-next" type="button" aria-label="Next screenshot">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+          <div class="carousel-dots"></div>
+          <p class="carousel-caption">Captured on the ASUS ROG Ally (2023) · 1920 × 1080</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Architecture</div>
+          <h2 class="section-title">A clear separation of concerns</h2>
+          <p class="section-sub">Six core components, each owning one responsibility. Games target the platform API — never the kernel or compositor.</p>
+        </div>
+
+        <div class="arch">
+          <div class="arch-row">
+            <div class="arch-layer">
+              <span class="badge">Game</span>
+              <span class="name">Isolated game process</span>
+              <span class="desc">One at a time · targets libplayos</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer">
+              <span class="badge">UX</span>
+              <span class="name">playos-shell</span>
+              <span class="desc">Raylib · controller-first interface</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer owner">
+              <span class="badge">Display</span>
+              <span class="name">playos-compositor</span>
+              <span class="desc">wlroots · owns DRM/KMS &amp; focus</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer">
+              <span class="badge">Control</span>
+              <span class="name">playos-runtime + platform-api</span>
+              <span class="desc">lifecycle transport · libplayos C ABI</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer">
+              <span class="badge">System</span>
+              <span class="name">playos-init</span>
+              <span class="desc">PID 1 · supervises &amp; restarts services</span>
+            </div>
+            <div class="arch-arrow">▲</div>
+            <div class="arch-layer">
+              <span class="badge">Kernel</span>
+              <span class="name">Linux (Buildroot image)</span>
+              <span class="desc">EFI-stub · AMDGPU / DRM · evdev</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="principle-list">
+          <li>Linux is the hardware layer, not the product.</li>
+          <li>The system image is immutable; only the data partition is writable.</li>
+          <li>The compositor permanently owns DRM/KMS — no handoffs to games.</li>
+          <li>One game runs at a time; the shell always stays alive.</li>
+          <li>Games target <code>playos-platform-api</code>; they never touch compositor or kernel internals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="ecosystem" class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Ecosystem</div>
+          <h2 class="section-title">Thirteen repositories, one platform</h2>
+          <p class="section-sub">Everything is open source under the PlayOS Foundation.</p>
+        </div>
+
+        <div class="eco-group">
+          <h3>Core runtime</h3>
+          <div class="grid cols-2">
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-init" target="_blank" rel="noopener">
+              <span class="name">playos-init</span>
+              <span class="desc">PID 1 init and system supervisor — boots the OS, supervises compositor/shell, launches games.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-compositor" target="_blank" rel="noopener">
+              <span class="name">playos-compositor</span>
+              <span class="desc">Minimal wlroots compositor owning DRM/KMS, Wayland sessions, focus, and input routing.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-shell" target="_blank" rel="noopener">
+              <span class="name">playos-shell</span>
+              <span class="desc">Raylib-based console interface for launching and managing applications.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-runtime" target="_blank" rel="noopener">
+              <span class="name">playos-runtime</span>
+              <span class="desc">Application lifecycle, package execution, runtime services, and OS integration.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-platform-api" target="_blank" rel="noopener">
+              <span class="name">playos-platform-api</span>
+              <span class="desc">Reference implementation of the public libplayos C ABI (input, storage, lifecycle, cloud).</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="eco-group">
+          <h3>Distribution &amp; hardware</h3>
+          <div class="grid cols-2">
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-refdistro" target="_blank" rel="noopener">
+              <span class="name">playos-refdistro</span>
+              <span class="desc">Buildroot assembly — builds the immutable, bootable image for ROG Ally and QEMU.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-reference-devices" target="_blank" rel="noopener">
+              <span class="name">playos-reference-devices</span>
+              <span class="desc">Hardware profiles, platform backends, and bring-up guides for supported devices.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="eco-group">
+          <h3>Developer</h3>
+          <div class="grid cols-2">
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-spec" target="_blank" rel="noopener">
+              <span class="name">playos-spec</span>
+              <span class="desc">The official specification, architecture, RFCs, and developer documentation.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-tools" target="_blank" rel="noopener">
+              <span class="name">playos-tools</span>
+              <span class="desc">Packaging, project templates, build utilities, deployment, and SDK tooling.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-samples" target="_blank" rel="noopener">
+              <span class="name">playos-samples</span>
+              <span class="desc">Sample applications and tutorials demonstrating the Platform API.</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="eco-group">
+          <h3>Services &amp; organization</h3>
+          <div class="grid cols-2">
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-marketplace" target="_blank" rel="noopener">
+              <span class="name">playos-marketplace</span>
+              <span class="desc">Open marketplace for publishing, discovering, and installing games and content.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-cloud" target="_blank" rel="noopener">
+              <span class="name">playos-cloud</span>
+              <span class="desc">Self-hostable cloud services: accounts, cloud saves, achievements, leaderboards.</span>
+            </a>
+            <a class="repo" href="https://github.com/PlayOS-Foundation/playos-foundation" target="_blank" rel="noopener">
+              <span class="name">playos-foundation</span>
+              <span class="desc">This website — governance, roadmap, community guidelines, and branding.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="reveal">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Roadmap</div>
+          <h2 class="section-title">Sprint status</h2>
+          <p class="section-sub">Sixteen sprints shipped and verified — including on-device validation of A/B updates and the security sandbox. Two remain before the public MVP release.</p>
+        </div>
+
+        <div class="progress" role="progressbar" aria-valuenow="16" aria-valuemin="0" aria-valuemax="18" aria-label="Sprint progress toward public MVP">
+          <div class="progress-bar" style="width: 89%"></div>
+        </div>
+        <p class="progress-label">16 of 18 sprints complete</p>
+
+        <div class="grid cols-2 sprint-cols">
+          <div class="card sprint-card">
+            <div class="sprint-head">
+              <span class="sprint-badge done" aria-hidden="true">✓</span>
+              <div>
+                <h3>Sprints implemented</h3>
+                <p>Complete &amp; verified</p>
+              </div>
+              <span class="sprint-count">16</span>
+            </div>
+            <ul class="sprint-list">
+              <li><span class="sprint-num">0</span> Build &amp; UEFI Foundation</li>
+              <li><span class="sprint-num">1</span> playos-init &amp; Minimal Boot</li>
+              <li><span class="sprint-num">2</span> Compositor Skeleton &amp; Wayland Session</li>
+              <li><span class="sprint-num">2.5</span> Cross-Sprint Audit</li>
+              <li><span class="sprint-num">3</span> ROG Ally Kernel Bring-Up</li>
+              <li><span class="sprint-num">4</span> AMDGPU &amp; Native DRM/KMS</li>
+              <li><span class="sprint-num">5</span> Raylib-Powered Shell</li>
+              <li><span class="sprint-num">5.5</span> Raylib 6.0 Migration</li>
+              <li><span class="sprint-num">5.6</span> Repos Cleanup</li>
+              <li><span class="sprint-num">6</span> Storage &amp; Game Discovery</li>
+              <li><span class="sprint-num">7</span> Game Launch, Lifecycle &amp; Overlay</li>
+              <li><span class="sprint-num">8</span> ALSA Audio</li>
+              <li><span class="sprint-num">9</span> Power, Battery, Thermal &amp; Suspend</li>
+              <li><span class="sprint-num">10</span> Installer &amp; Internal-Disk Deployment</li>
+              <li><span class="sprint-num">11</span> Immutable Images &amp; A/B Updates</li>
+              <li><span class="sprint-num">12</span> Security Hardening</li>
+            </ul>
+            <p class="sprint-note">Sub-sprints 9.5 (brightness control), 11.5 (squashfs pivot &amp; A/B matrix) and 11.6 (SSH &amp; USB-C Ethernet) are also complete — all validated on-device on the ROG Ally.</p>
+          </div>
+
+          <div class="card sprint-card">
+            <div class="sprint-head">
+              <span class="sprint-badge pending" aria-hidden="true">→</span>
+              <div>
+                <h3>Pending to public MVP</h3>
+                <p>In dependency order</p>
+              </div>
+              <span class="sprint-count">2</span>
+            </div>
+            <ul class="sprint-list">
+              <li><span class="sprint-num">13</span> Intel Expansion</li>
+              <li><span class="sprint-num">14</span> Production Readiness</li>
+            </ul>
+            <p class="sprint-note">Sprint 13 (Intel expansion) is authored and aligned in the spec — hardware validation on an Intel/NVIDIA laptop target is next. Sprint 11.5/11.6 and 12 are already validated on-device.</p>
+            <p class="sprint-note">After the MVP: Game Developer SDK, Wi-Fi, and Touch &amp; On-Screen Keyboard.</p>
+          </div>
+        </div>
+
+        <div class="band">
+          <h2>Under active development</h2>
+          <p>PlayOS is an early-stage, community-driven project. Follow the full roadmap and sprint criteria in the specification.</p>
+          <div class="cta-row" style="justify-content:center">
+            <a class="btn btn-primary" href="https://playos-foundation.github.io/playos-spec/sprints/roadmap.html" target="_blank" rel="noopener">View the roadmap</a>
+            <a class="btn btn-ghost" href="https://playos-foundation.github.io/playos-spec/build-guide.html" target="_blank" rel="noopener">Build it yourself</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top" style="margin-bottom:12px">
+            <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="7" fill="#5eead4" fill-opacity="0.14"/>
+              <path d="M12.5 10.5v11l10-5.5z" fill="#5eead4"/>
+            </svg>
+            <span class="brand-name">PlayOS</span>
+          </a>
+          <p>A console operating system for handheld gaming PCs — starting with the ASUS ROG Ally. Open source, built by the community.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Project</h4>
+          <a href="#features">Features</a>
+          <a href="#screenshots">Screenshots</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#ecosystem">Repositories</a>
+          <a href="#roadmap">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <h4>Developers</h4>
+          <a href="https://playos-foundation.github.io/playos-spec/" target="_blank" rel="noopener">Documentation</a>
+          <a href="https://playos-foundation.github.io/playos-spec/build-guide.html" target="_blank" rel="noopener">Build guide</a>
+          <a class="gh" href="https://github.com/PlayOS-Foundation" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="https://github.com/PlayOS-Foundation/playos-foundation" target="_blank" rel="noopener">Governance</a>
+          <a href="https://github.com/PlayOS-Foundation/playos-spec" target="_blank" rel="noopener">Specification</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PlayOS Foundation</span>
+        <span>Linux® is the registered trademark of Linus Torvalds. ASUS and ROG are trademarks of their respective owners.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    navToggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    (function () {
+      var reveals = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        for (var i = 0; i < reveals.length; i++) {
+          reveals[i].classList.add('is-visible');
+        }
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      for (var j = 0; j < reveals.length; j++) {
+        observer.observe(reveals[j]);
+      }
+    })();
+
+    (function () {
+      var clock = document.getElementById('status-clock');
+      if (!clock) { return; }
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      function tick() {
+        var d = new Date();
+        clock.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes());
+      }
+      tick();
+      setInterval(tick, 30000);
+    })();
+
+    (function () {
+      var carousel = document.getElementById('screenshot-carousel');
+      if (!carousel) { return; }
+      var track = carousel.querySelector('.carousel-track');
+      var slides = carousel.querySelectorAll('.carousel-slide');
+      var dotsWrap = carousel.querySelector('.carousel-dots');
+      var prevBtn = carousel.querySelector('.carousel-prev');
+      var nextBtn = carousel.querySelector('.carousel-next');
+      var count = slides.length;
+      var index = 0;
+      var timer = null;
+      var AUTOPLAY_MS = 5000;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var dots = [];
+      for (var i = 0; i < count; i++) {
+        (function (n) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'carousel-dot';
+          dot.setAttribute('aria-label', 'Go to screenshot ' + (n + 1) + ' of ' + count);
+          dot.addEventListener('click', function () { goTo(n, true); });
+          dotsWrap.appendChild(dot);
+          dots.push(dot);
+        })(i);
+      }
+
+      function goTo(n, userInitiated) {
+        index = ((n % count) + count) % count;
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        for (var i = 0; i < count; i++) {
+          dots[i].classList.toggle('active', i === index);
+          if (i === index) { dots[i].setAttribute('aria-current', 'true'); }
+          else { dots[i].removeAttribute('aria-current'); }
+        }
+        if (userInitiated) { restart(); }
+      }
+      function next() { goTo(index + 1, true); }
+      function prev() { goTo(index - 1, true); }
+
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() {
+        if (reduceMotion) { return; }
+        stop();
+        timer = setInterval(function () { goTo(index + 1, false); }, AUTOPLAY_MS);
+      }
+      function restart() { start(); }
+
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+      carousel.addEventListener('focusin', stop);
+      carousel.addEventListener('focusout', start);
+
+      carousel.setAttribute('tabindex', '0');
+      carousel.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { prev(); e.preventDefault(); }
+        else if (e.key === 'ArrowRight') { next(); e.preventDefault(); }
+      });
+
+      var pointerStartX = null;
+      carousel.addEventListener('pointerdown', function (e) {
+        pointerStartX = e.clientX;
+        stop();
+      });
+      carousel.addEventListener('pointerup', function (e) {
+        if (pointerStartX === null) { return; }
+        var dx = e.clientX - pointerStartX;
+        pointerStartX = null;
+        if (dx > 40) { prev(); }
+        else if (dx < -40) { next(); }
+        else { restart(); }
+      });
+      carousel.addEventListener('pointercancel', function () {
+        pointerStartX = null;
+        restart();
+      });
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { start(); }
+            else { stop(); }
+          });
+        }, { threshold: 0.25 });
+        io.observe(carousel);
+      } else {
+        start();
+      }
+
+      goTo(0, false);
+      start();
+    })();
+  </script>
+</body>
+</html>
