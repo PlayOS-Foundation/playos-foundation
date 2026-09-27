@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in — PlayOSUniverse</title>
+  <meta name="description" content="Sign in to PlayOSUniverse, the online identity for PlayOS. Accounts are not live yet — this page will connect to the PlayOS identity backend when it ships.">
+  <meta property="og:title" content="Sign in — PlayOSUniverse">
+  <meta property="og:description" content="Sign in to PlayOSUniverse, the online identity for PlayOS. Accounts are not live yet.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://playos.dev/signin.html">
+  <meta property="og:image" content="https://playos.dev/assets/og.png">
+  <meta name="theme-color" content="#0a0c0f">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/auth.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0c0f'/%3E%3Cpath d='M12 10.5v11l10-5.5z' fill='%235eead4'/%3E%3C/svg%3E">
+  <script data-goatcounter="https://playos.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+  <div class="statusbar" aria-hidden="true">
+    <div class="wrap statusbar-inner">
+      <span class="status-mode"><span class="status-dot"></span>Game Mode</span>
+      <span class="status-right">
+        <span class="status-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="6" x2="10" y1="11" y2="11"/>
+            <line x1="8" x2="8" y1="9" y2="13"/>
+            <line x1="15" x2="15.01" y1="12" y2="12"/>
+            <line x1="18" x2="18.01" y1="10" y2="10"/>
+            <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+          </svg>
+          <span>P1</span>
+        </span>
+        <span class="status-item status-clock" id="status-clock">--:--</span>
+      </span>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="PlayOS home">
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#5eead4" fill-opacity="0.14"/>
+          <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="#5eead4" stroke-opacity="0.4"/>
+          <path d="M12.5 10.5v11l10-5.5z" fill="#5eead4"/>
+        </svg>
+        <span class="brand-name">PlayOS</span>
+        <span class="brand-sub">Foundation</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#what">What is PlayOS</a>
+        <a href="index.html#today">For players</a>
+        <a href="index.html#coming">Coming</a>
+        <a href="https://playos-foundation.github.io/playos-spec/" target="_blank" rel="noopener">Docs</a>
+        <a href="signin.html">Sign in</a>
+        <a class="nav-cta" href="signup.html">Sign up</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+    </div>
+  </nav>
+
+  <main class="auth-main">
+    <div class="wrap auth-layout">
+      <div class="auth-card">
+        <p class="section-kicker">PlayOSUniverse</p>
+        <h1>Sign in to PlayOSUniverse</h1>
+        <p class="auth-sub">The online identity for PlayOS. Sign in is not live yet — this page will connect to the identity backend when it ships.</p>
+
+        <form data-auth-form="signin">
+          <div class="social-row" aria-label="Social sign-in options">
+            <button type="button" class="social-btn" data-social="Google">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47a5.57 5.57 0 0 1-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A11.99 11.99 0 0 0 12 24z"/>
+                <path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29a12 12 0 0 0 0 10.76l3.98-3.09z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.69 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z"/>
+              </svg>
+              Continue with Google
+            </button>
+            <button type="button" class="social-btn" data-social="GitHub">
+              <svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              Continue with GitHub
+            </button>
+            <button type="button" class="social-btn" data-social="Discord">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#5865F2" d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+              Continue with Discord
+            </button>
+            <button type="button" class="social-btn" data-social="Facebook" disabled title="Not available yet — Facebook app review is pending">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#1877F2" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.93-1.956 1.886v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+              </svg>
+              Continue with Facebook
+              <span class="social-badge">pending app review</span>
+            </button>
+          </div>
+
+          <div class="divider" aria-hidden="true"><span>or sign in with email</span></div>
+
+          <div class="field">
+            <label for="signin-email">Email</label>
+            <input type="email" id="signin-email" name="email" autocomplete="email" placeholder="you@example.com">
+            <p class="field-error" id="signin-email-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="signin-password">Password</label>
+            <div class="password-field">
+              <input type="password" id="signin-password" name="password" autocomplete="current-password">
+              <button type="button" class="toggle-password" aria-controls="signin-password" aria-pressed="false" aria-label="Show password">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+            <span class="auth-forgot" role="note">Forgot password? <em>Not live yet</em></span>
+            <p class="field-error" id="signin-password-error"></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+
+          <p class="auth-status" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <p class="auth-note">New to PlayOSUniverse? <a href="signup.html">Create an account</a>.</p>
+        <p class="auth-note">Prefer to link from your device? When PlayOSUniverse ships, your PlayOS device will show a short code and point you to <code>playosuniverse.com/activate</code>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" style="margin-bottom:12px">
+            <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="7" fill="#5eead4" fill-opacity="0.14"/>
+              <path d="M12.5 10.5v11l10-5.5z" fill="#5eead4"/>
+            </svg>
+            <span class="brand-name">PlayOS</span>
+          </a>
+          <p>A console operating system for handheld gaming PCs — starting with the ASUS ROG Ally. Open source, built in the open.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Project</h4>
+          <a href="index.html#what">What is PlayOS</a>
+          <a href="index.html#today">For players</a>
+          <a href="index.html#coming">Coming to PlayOS</a>
+        </div>
+        <div class="footer-col">
+          <h4>PlayOSUniverse</h4>
+          <a href="signup.html">Sign up</a>
+          <a href="signin.html">Sign in</a>
+        </div>
+        <div class="footer-col">
+          <h4>Developers</h4>
+          <a href="https://playos-foundation.github.io/playos-spec/" target="_blank" rel="noopener">Documentation</a>
+          <a href="https://playos-foundation.github.io/playos-spec/build-guide.html" target="_blank" rel="noopener">Build guide</a>
+          <a class="gh" href="https://github.com/PlayOS-Foundation" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PlayOS Foundation</span>
+        <span>Linux® is the registered trademark of Linus Torvalds. ASUS and ROG are trademarks of their respective owners.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/auth.js"></script>
+  <script>
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
+    navToggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    (function () {
+      var clock = document.getElementById('status-clock');
+      if (!clock) { return; }
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      function tick() {
+        var d = new Date();
+        clock.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes());
+      }
+      tick();
+      setInterval(tick, 30000);
+    })();
+  </script>
+</body>
+</html>
